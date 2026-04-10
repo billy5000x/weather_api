@@ -11,7 +11,7 @@ class WeatherViewSet(viewsets.ModelViewSet):
     queryset = WeatherRecord.objects.all().order_by('-timestamp')
     serializer_class = WeatherRecordSerializer
 
-    # 🔍 FILTROS
+    
     def get_queryset(self):
         queryset = super().get_queryset()
         city = self.request.query_params.get('city')
@@ -27,7 +27,7 @@ class WeatherViewSet(viewsets.ModelViewSet):
 
         return queryset
 
-    # 🌐 FETCH WEATHER
+    
     @action(detail=False, methods=['post'], url_path='fetch-weather')
     def fetch_weather(self, request):
         city = request.data.get('city')
