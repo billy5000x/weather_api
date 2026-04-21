@@ -6,5 +6,7 @@ class WeatherRecord(models.Model):
     humidity = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    is_deleted = models.BooleanField(default=False)
+
     def __str__(self):
         return f"{self.city} - {self.temperature}°C"
